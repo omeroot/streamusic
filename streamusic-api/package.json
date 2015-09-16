@@ -21,6 +21,8 @@
     "socket.io-client" : "*",
     "jsonwebtoken" : "*",
     "jade" : "*",
-    "lowdb" : "*"
+    "lowdb" : "*",
+    "mongoose" : "*",
+    "nodemailer" : "*"
   }
 }

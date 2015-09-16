@@ -22,5 +22,9 @@ module.exports = {
   timeout: {
     code: 408,
     message: 'timeout'
+  },
+  unavailable: {
+    code: 503,
+    message: "the server is currently unavailable"
   }
 };
