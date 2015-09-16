@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var track = require('./track');
+
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -21,11 +23,12 @@ var userSchema = new Schema({
         type: Date,
         default: Date.now
       },
-      lists: {
-        musics: [],
-        notifications: []
-      }
+      tracks: [track.schema],
+      notifications: []
     },
     {collection: 'users'});
 
-module.exports = mongoose.model('User',userSchema);
+module.exports = {
+  model: mongoose.model('User', userSchema),
+  schema: userSchema
+};
