@@ -1,17 +1,16 @@
-var mongoose = require('mongoose');
-var userModel = require('../../models/user.js');
+var User = require('../../models/user.js');
 var codes = require('../../messages/res-content.js');
 var mailer = require('../utils/mailer.js');
 
 module.exports = function (req, res) {
-  var User = mongoose.model('users', userModel);
+
   var data = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    username: req.body.userName,
-    gender: req.body.gender,
-    password: req.body.password,
-    email: req.body.email
+    firstName: req.body.firstName || req.query.firstName,
+    lastName: req.body.lastName || req.query.lastName,
+    username: req.body.userName || req.query.userName,
+    gender: req.body.gender || req.query.gender,
+    password: req.body.password || req.query.password,
+    email: req.body.email || req.query.email
   };
 
   newUser = new User(data);
