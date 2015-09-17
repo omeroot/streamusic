@@ -1,0 +1,108 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+* {
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+body {
+    background-color: #ebebeb;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 100;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 100;
+    color: #999;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+p {
+    text-align: center;
+    font-weight: 300;
+    color: #aaa;
+    margin-top: 40px;
+    line-height: 1.5;
+}
+
+.login {
+    margin: 20px auto;
+    width: 300px;
+}
+.login-screen {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px
+}
+
+.app-title {
+    text-align: center;
+    color: #777;
+}
+
+.login-form {
+    text-align: center;
+}
+.control-group {
+    margin-bottom: 10px;
+}
+
+input {
+    text-align: center;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+}
+
+input:focus {
+    border: 2px solid #3498DB;
+    box-shadow: none;
+}
+
+.btn {
+    border: 2px solid transparent;
+    background: #3498DB;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    background-color: #2980B9;
+}
+
+.login-link {
+    font-size: 12px;
+    color: #444;
+    display: block;
+    margin-top: 12px;
+}

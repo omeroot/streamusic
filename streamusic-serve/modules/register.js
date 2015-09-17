@@ -1,7 +1,7 @@
-var User = require('../../models/user.js').model;
-var codes = require('../../messages/res-content.js');
-var mailer = require('../utils/mailer.js');
-var crypter = require('../utils/crypt.js');
+var User = require('../models/user.js').model;
+var codes = require('../messages/res-content.js');
+var mailer = require('./utils/mailer.js');
+var crypter = require('./utils/crypt.js');
 
 module.exports = function (req, res) {
   var newUser;
