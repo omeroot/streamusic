@@ -1,6 +1,7 @@
-var User = require('../../models/user.js');
+var User = require('../../models/user.js').model;
 var codes = require('../../messages/res-content.js');
 var mailer = require('../utils/mailer.js');
+var crypter = require('../utils/crypt.js');
 
 module.exports = function (req, res) {
 
@@ -13,14 +14,16 @@ module.exports = function (req, res) {
     email: req.body.email || req.query.email
   };
 
+  data.password = crypter.createHash(data.password, 'sha256');
+
   newUser = new User(data);
 
   newUser.save(function (err, data) {
-    if (err){
+    if (err) {
       res.status(codes.unavailable.code).json(codes.unavailable);
       throw err;
-    }else{
-
+    } else {
+      res.status(codes.success.code).json(codes.success);
     }
   });
 
