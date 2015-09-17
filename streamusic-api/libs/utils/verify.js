@@ -1,11 +1,11 @@
 var jwt = require('jsonwebtoken');
 
-function verify(token,key){
+function verify(token,key,callback){
   jwt.verify(token,key,function(err,decoded){
     if(err){
-      return false
+      callback(true,{});
     }else{
-      return decoded;
+      callback(null,decoded);
     }
   })
 }

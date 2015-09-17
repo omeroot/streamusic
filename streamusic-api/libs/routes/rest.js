@@ -1,3 +1,4 @@
 module.exports = {
-  authenticate: require('./callbacks/Authenticate.js')
+  playlist: require('./callbacks/PlayList.js'),
+  track: require('./callbacks/Track.js')
 };

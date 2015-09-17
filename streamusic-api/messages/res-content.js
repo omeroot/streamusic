@@ -23,8 +23,12 @@ module.exports = {
     code: 408,
     message: 'timeout'
   },
-  unavailable: {
+  unAvailable: {
     code: 503,
     message: "the server is currently unavailable"
+  },
+  notAcceptable: {
+    code: 406,
+    message: 'invalid format is specified in the request.'
   }
 };

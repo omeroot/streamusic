@@ -4,6 +4,7 @@ var mailer = require('../utils/mailer.js');
 var crypter = require('../utils/crypt.js');
 
 module.exports = function (req, res) {
+  var newUser;
 
   var data = {
     firstName: req.body.firstName || req.query.firstName,
@@ -14,7 +15,7 @@ module.exports = function (req, res) {
     email: req.body.email || req.query.email
   };
 
-  data.password = crypter.createHash(data.password, 'sha256');
+  data.password = crypter.crypt(data.password, 'sha256');
 
   newUser = new User(data);
 
