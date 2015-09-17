@@ -81,7 +81,7 @@ input:focus {
 
 .btn {
     border: 2px solid transparent;
-    background: #3498DB;
+    background: #637687;
     color: #ffffff;
     font-size: 16px;
     line-height: 25px;
@@ -97,6 +97,7 @@ input:focus {
 }
 
 .btn:hover {
+    cursor: default;
     background-color: #2980B9;
 }
 
