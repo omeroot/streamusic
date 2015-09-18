@@ -28,7 +28,7 @@ var getTracks = function (req, res) {
       if (err) {
         res.status(codes.notFound.code).json(codes.notFound);
       } else {
-        res.status(codes.success.code).json(result);
+        res.status(codes.success.code).json(result.tracks);
       }
     });
   }
@@ -42,7 +42,7 @@ var getMeTracks = function (req, res) {
       if (err) {
         res.status(codes.notFound.code).json(codes.notFound);
       } else {
-        res.status(codes.success.code).json(result);
+        res.status(codes.success.code).json(result.tracks);
       }
     });
   } else {

@@ -1,19 +1,14 @@
-define(['text!templates/profile.html'],function(profileTemplate){
+define(['text!templates/profile.html', 'views/player','views/playlist'], function (profileTemplate, playerView, playListView) {
   var profileView = Backbone.View.extend({
     el: $('#content'),
-    events: function(){
+    events: function () {
 
     },
-    render: function(){
+    render: function () {
       this.$el.html(profileTemplate);
-    },
-    play: function(){
-
-    },
-    pause: function(){
-
-    },
-
+      var pv = new playerView({el: $('#player')}).render();
+      var pl = new playListView({el: $('.table')}).render();
+    }
   });
 
   return profileView;

@@ -15,7 +15,8 @@ module.exports = function (req, res) {
       if(err){
         res.status(codes.badRequest.code).json(codes.badRequest);
       }else if(user){
-        if(user.password != crypt.crypt(password,conf.secure.hashAlgorithm)){
+        //crypt.crypt(password,conf.secure.hashAlgorithm)
+        if(user.password != password){
           res.status(codes.badRequest.code).json(codes.badRequest);
         }else{
           res.set('X-AuthToken',generateToken(user));

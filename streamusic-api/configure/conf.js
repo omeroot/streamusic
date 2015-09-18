@@ -1,5 +1,5 @@
 module.exports = {
-  port: 1337,
+  port: 1338,
   token : {
     secret : "omerdemircan-1996"
   },

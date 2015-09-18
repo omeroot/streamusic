@@ -4,11 +4,13 @@ require.config({
     jQueryCookie: 'libs/jquery.cookie',
     Backbone: 'libs/backbone-min',
     text: 'libs/text',
+    bootstrap: 'libs/bootstrap.min.js',
     templates: '../templates',
     Underscore: 'libs/underscore-min',
     Router: 'router',
-    Main: 'main',
-    cache: 'cache'
+    cache: 'cache',
+    models: 'models/',
+    collections: 'collections/',
   },
   shim: {
     'jQuery': {
@@ -16,7 +18,8 @@ require.config({
     },
     'jQueryCookie': ['jQuery'],
     'Backbone': ['Underscore', 'jQuery'],
-    'Main': ['Backbone']
+    'Main': ['Backbone'],
+    'bootstrap': ['jQuery']
   }
 });
 

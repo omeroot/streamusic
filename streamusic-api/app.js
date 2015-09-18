@@ -12,3 +12,9 @@ exp.apiRouter.get('/user/:user_id/playlist/:playlist_id/tracks');
 exp.apiRouter.get('/user/me/playlist');
 
 exp.apiRouter.get('/track/:track_id',api.getSelfTrack);
+
+
+exp.apiRouter.post('/test',function(req, res){
+	console.log(req.headers);
+	res.end();
+});
