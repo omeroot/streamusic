@@ -15,11 +15,17 @@ define(function(){
                       '<td>' + this.modelJSON.artist + '</td>' +
                       '<td>' + this.modelJSON.human_duration + '</td>' +
                       '<td>' +
-                        '<button type="button" class="btn btn-primary btn-xs" id="send-friend">send</button>' +
+                        '<div class="col-xs-3"></div><input class="form-control input-sm" id="send" type="text"></div>' +
                       '</td>' +
                       '<td>' +
                         '<button type="button" class="btn btn-primary btn-xs" id="play">play</button>' +
                       '</td>';
+
+      $('#send').focus().keydown(function(e){
+        if(e.which == 13){
+          document.getElementById('send').innerHTML = "";
+        }
+      });
     },
     render: function(){
       this.$el.html(this.template);
