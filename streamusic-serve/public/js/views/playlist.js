@@ -12,6 +12,7 @@ define(['collections/playlistCol', 'views/track'], function (playlistCollection,
           console.log('err', errorThrown);
         }
       });
+      this.track = document.getElementById('track');
     },
     render: function () {
       this.createPlayList(playlistCollection.models);
@@ -30,7 +31,8 @@ define(['collections/playlistCol', 'views/track'], function (playlistCollection,
       this.$el.append(v.el);
     },
     playTrack: function (item) {
-
+      console.log(item);
+      this.track.play();
     }
   });
 

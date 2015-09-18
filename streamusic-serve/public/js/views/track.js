@@ -7,9 +7,13 @@ define(function(){
     modelJSON: null,
     initialize: function(){
       this.modelJSON = this.model.toJSON();
+
+      var t = this.transformTime(this.modelJSON.duration);
+      this.modelJSON.human_duration = t;
+
       this.template = '<td>' + this.modelJSON.name + '</td>' +
                       '<td>' + this.modelJSON.artist + '</td>' +
-                      '<td>' + this.modelJSON.duration + '</td>' +
+                      '<td>' + this.modelJSON.human_duration + '</td>' +
                       '<td>' +
                         '<button type="button" class="btn btn-primary btn-xs" id="send-friend">send</button>' +
                       '</td>' +
@@ -23,6 +27,22 @@ define(function(){
     },
     trigItem: function(){
       this.trigger('item',this.modelJSON);
+    },
+    transformTime: function(ms){
+      var sn;
+      var mn;
+
+      sn = ms/1000;
+      mn = Math.floor(sn/60);
+      sn = sn % 60;
+
+      if(mn > 9){
+        return "0" + mn.toString() + ":" + sn.toString();
+
+      }else{
+        return mn.toString() + ":" + sn.toString();
+
+      }
     }
   });
   return trackItemView;
