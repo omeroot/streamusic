@@ -11,12 +11,12 @@ module.exports = function (req, res) {
   if (typeof username === 'undefined' || typeof password === 'undefined') {
     res.status(codes.badRequest.code).json(codes.badRequest);
   } else {
-    User.findOne({userName: username},function(err, user){
+    User.findOne({username: username},function(err, user){
       if(err){
         res.status(codes.badRequest.code).json(codes.badRequest);
       }else if(user){
-        //crypt.crypt(password,conf.secure.hashAlgorithm)
-        if(user.password != password){
+        //
+        if(user.password != crypt.crypt(password,conf.secure.hashAlgorithm)){
           res.status(codes.badRequest.code).json(codes.badRequest);
         }else{
           res.set('X-AuthToken',generateToken(user));
