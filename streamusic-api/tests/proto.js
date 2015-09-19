@@ -1,21 +1,22 @@
 var User = require('../models/user.js').model;
 var crypter = require('../libs/utils/crypt.js');
 
-var user = new User({
-  userName: "node",
-  password: crypter.createHash("123",'sha256')
-});
+(function(){
+  var user = new User({
+    userName: "omer",
+    password: crypter.crypt("123",'sha256')
+  });
 
+  user.save(function(err,res){
+    console.log(res);
+    if(err) console.log(err);
+    if(!err){
+      console.log('success saved node user');
+    }
+  });
 
+})();
 
-user.save(function(err){
-  console.log('sdf');
-  if(err) console.log(err);
-  if(!err){
-    console.log('success saved node user');
-  }
-
-});
 
 
 
