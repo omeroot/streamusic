@@ -20,7 +20,7 @@ app.use(bodyParser());
 app.use(function(req,res,next){
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:1337');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, PUT, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization X-AuthToken');
   res.setHeader('Access-Control-Allow-Credentials', true);
   if (req.method === "OPTIONS") {
   	res.end();
