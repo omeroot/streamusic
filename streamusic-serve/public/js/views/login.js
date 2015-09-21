@@ -33,7 +33,6 @@ define(['text!templates/login.html'],function(loginTemplate){
     },
     toServer: function(data){
       $.ajax({
-        context: this,
         method: 'POST',
         url: '/login',
         data: data,
@@ -41,10 +40,10 @@ define(['text!templates/login.html'],function(loginTemplate){
           document.cookie = "token=" + jqXHR.getResponseHeader('X-AuthToken');
           window.location.hash = 'profile';
         },
-        error: function(a,b,thrownError){
+        error: _.bind(function(a,b,thrownError){
           this.showError();
-        }
-      }, this);
+        }, this)
+      });
     },
     showError: function(){
       $('#login-name').val("");

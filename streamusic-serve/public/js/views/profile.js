@@ -1,4 +1,4 @@
-define(['text!templates/profile.html', 'views/player','views/playlist'], function (profileTemplate, playerView, playListView) {
+define(['text!templates/profile.html', 'views/player', 'views/playlist'], function (profileTemplate, playerView, playListView) {
   var profileView = Backbone.View.extend({
     el: $('#content'),
     events: function () {

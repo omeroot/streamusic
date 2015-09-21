@@ -4,13 +4,14 @@ require.config({
     jQueryCookie: 'libs/jquery.cookie',
     Backbone: 'libs/backbone-min',
     text: 'libs/text',
-    bootstrap: 'libs/bootstrap.min.js',
+    bootstrap: 'libs/bootstrap.min',
     templates: '../templates',
     Underscore: 'libs/underscore-min',
     Router: 'router',
+    utils: 'modules/_utils',
     cache: 'cache',
     models: 'models/',
-    collections: 'collections/',
+    collections: 'collections/'
   },
   shim: {
     'jQuery': {
@@ -18,11 +19,12 @@ require.config({
     },
     'jQueryCookie': ['jQuery'],
     'Backbone': ['Underscore', 'jQuery'],
-    'Main': ['Backbone'],
+    'Main': ['Backbone','utils','jQueryCookie'],
     'bootstrap': ['jQuery']
   }
 });
 
-require(['Main'],function(main){
+require(['Main','utils'],function(main,utils){
+  utils.overrideSync();
   main.start();
 });

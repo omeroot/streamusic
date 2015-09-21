@@ -10,7 +10,7 @@ var conf = require('./configure/conf.js');
 var app = express();
 var server = http.createServer(app);
 
-mongoose.connect(conf.database.host);
+mongoose.connect(conf.database.host,conf.database.opts);
 
 app.use(cookieParser());
 app.use(bodyParser());
