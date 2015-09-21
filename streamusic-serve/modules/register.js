@@ -9,12 +9,12 @@ module.exports = function (req, res) {
   var data = {
     firstName: req.body.firstName || req.query.firstName,
     lastName: req.body.lastName || req.query.lastName,
-    username: req.body.userName || req.query.userName,
+    username: req.body.username || req.query.username,
     gender: req.body.gender || req.query.gender,
     password: req.body.password || req.query.password,
     email: req.body.email || req.query.email
   };
-
+  console.log(data);
   data.password = crypter.crypt(data.password, 'sha256');
 
   newUser = new User(data);

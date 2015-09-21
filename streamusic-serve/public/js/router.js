@@ -1,8 +1,10 @@
-define(['views/login','views/profile','views/header'],function(loginView,profileView,headerView){
+define(['views/login','views/profile','views/header','views/register'],
+  function(loginView,profileView,headerView,registerView){
   var router = Backbone.Router.extend({
     routes: {
       'login': 'login',
-      'profile': 'profile'
+      'profile': 'profile',
+      'register': 'register'
     },
     currentView: null,
     changeView: function(view){
@@ -21,6 +23,9 @@ define(['views/login','views/profile','views/header'],function(loginView,profile
     },
     profile: function(){
       this.changeView(new profileView());
+    },
+    register: function(){
+      this.changeView(new registerView());
     }
   });
 

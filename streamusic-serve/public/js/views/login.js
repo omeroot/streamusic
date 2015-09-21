@@ -33,6 +33,7 @@ define(['text!templates/login.html'],function(loginTemplate){
     },
     toServer: function(data){
       $.ajax({
+        context: this,
         method: 'POST',
         url: '/login',
         data: data,
@@ -41,9 +42,13 @@ define(['text!templates/login.html'],function(loginTemplate){
           window.location.hash = 'profile';
         },
         error: function(a,b,thrownError){
-          console.log('server error',thrownError);
+          this.showError();
         }
-      });
+      }, this);
+    },
+    showError: function(){
+      $('#login-name').val("");
+      $('#login-pass').val("");
     }
   });
 
