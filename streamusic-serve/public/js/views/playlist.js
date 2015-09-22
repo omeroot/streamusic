@@ -1,6 +1,8 @@
-define(['collections/playlistCol', 'views/track'], function (playlistCollection, trackView) {
+define(['collections/playlistCol', 'views/track','Backbone'], function (PlaylistCollection, trackView, Backbone) {
+
   var playListView = Backbone.View.extend({
     render: function () {
+      var playlistCollection = new PlaylistCollection();
       playlistCollection.fetch({
         success: _.bind(function () {
           this.createPlayList(playlistCollection.models);
@@ -9,7 +11,7 @@ define(['collections/playlistCol', 'views/track'], function (playlistCollection,
           console.log(thrownError);
         }
       });
-
+      console.log(playlistCollection);
     },
     createPlayList: function (models) {
       _.each(models, function (model) {

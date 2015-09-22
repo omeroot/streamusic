@@ -12,20 +12,28 @@ require.config({
     cache: 'cache',
     models: 'models/',
     collections: 'collections/',
-    events: 'events'
+    events: 'events',
+    Main: 'main'
   },
   shim: {
     'jQuery': {
       exports: '$'
     },
     'jQueryCookie': ['jQuery'],
-    'Backbone': ['Underscore', 'jQuery'],
-    'Main': ['Backbone','utils','jQueryCookie'],
+    'Backbone': {
+      deps: ['Underscore', 'jQuery']
+    },
+    'Main': {
+      deps: ['utils', 'jQueryCookie']
+    },
     'bootstrap': ['jQuery']
   }
 });
 
-require(['Main','utils'],function(main,utils){
+require(['utils'], function (utils) {
   utils.overrideSync();
-  main.start();
+
+  require(['Main'],function(main){
+    main.start();
+  });
 });

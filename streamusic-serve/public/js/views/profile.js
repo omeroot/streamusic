@@ -6,7 +6,7 @@ define(['text!templates/profile.html', 'views/player', 'views/playlist'], functi
     },
     render: function () {
       this.$el.html(profileTemplate);
-      //yer değiştirince authorization hatası veriyor!!!
+
       var pv = new playerView({el: $('.player')});
       var pl = new playListView({el: $('.table')});
 

@@ -5,19 +5,9 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
     },
     playStatus: false,
     track:null,
-    default_music: {
-      name:"sample",
-      artist:"sample",
-      uri: "http://cdn.demircanomer.com/erayicin",
-      duration:168000
-    },
     initialize: function(){
       console.log('initialize');
-      events.on('track-item', function(item){
-        $('#track').append('<source src=' + item.uri + ' type="audio/mpeg" />');
-        console.log('trig event');
-        $('#time').text(item.human_duration);
-      }, this);
+      events.on('track-item', this.prepareTrack, this);
       this.progress = $('.progress-bar');
     },
     render: function(){
@@ -40,11 +30,13 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
       $('#track').append('<source src=' + item.uri + ' type="audio/mpeg" />');
       console.log('trig event');
       $('#time').text(item.human_duration);
-      this.playPause();
+      var track = document.getElementById('track');
+      track.play();
     },
     play: function(){
       console.log('play');
-      this.track.play();
+      var track = document.getElementById('track');
+      track.play();
     },
     pause: function(){
       this.track.pause();
