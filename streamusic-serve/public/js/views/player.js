@@ -15,7 +15,6 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
       this.track = document.getElementById('track');
       //this.prepareTrack(this.default_music);
       //events.trigger('track-item',this.default_music);
-      return this;
     },
     playPause: function(){
       if(this.playStatus){
@@ -27,7 +26,7 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
       }
     },
     prepareTrack: function (item) {
-      $('#track').append('<source src=' + item.uri + ' type="audio/mpeg" />');
+      $('#track').append('<source src=http://' + item.uri + ' type="audio/mpeg" />');
       console.log('trig event');
       $('#time').text(item.human_duration);
       var track = document.getElementById('track');
