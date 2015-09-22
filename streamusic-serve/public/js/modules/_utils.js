@@ -2,13 +2,12 @@ define(function(){
 
   var overrideSync = function(){
 
-    console.log($.cookie('token'));
-
     $.ajaxSetup({
       xhrFields: {
         withCredentials: true
       },
       beforeSend: function(xhr){
+        console.log('token added to header');
         xhr.setRequestHeader('X-AuthToken', $.cookie('token'))
       }
     });
@@ -19,12 +18,6 @@ define(function(){
       options = options || {};
       options.beforeSend = function(jqXHR){
         jqXHR.setRequestHeader("X-AuthToken", $.cookie('token'));
-      };
-      options.xhrFields={
-        withCredentials: true
-      };
-      options.error = function(data,responseText,errorThrown){
-        console.log('err',errorThrown);
       };
 
       return sync.call(Backbone,method,model,options);

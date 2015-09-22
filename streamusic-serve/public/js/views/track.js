@@ -1,14 +1,13 @@
-define(function(){
+define(['events'],function(events){
   var trackItemView = Backbone.View.extend({
     tagName: "tr",
     events: {
-      'click #play': 'trigItem'
+      'click #list-play': 'trigItem'
     },
     modelJSON: null,
     initialize: function(){
       this.modelJSON = this.model.toJSON();
-
-      var t = this.transformTime(this.modelJSON.duration);
+      var t = this.transformTime(this.modelJSON.duration_ms);
       this.modelJSON.human_duration = t;
 
       this.template = '<td>' + this.modelJSON.name + '</td>' +
@@ -18,7 +17,7 @@ define(function(){
                         '<div class="col-xs-3"></div><input class="form-control input-sm" id="send" type="text"></div>' +
                       '</td>' +
                       '<td>' +
-                        '<button type="button" class="btn btn-primary btn-xs" id="play">play</button>' +
+                        '<button type="button" class="btn btn-primary btn-xs" id="list-play">play</button>' +
                       '</td>';
 
       $('#send').focus().keydown(function(e){
@@ -32,7 +31,8 @@ define(function(){
       return this;
     },
     trigItem: function(){
-      this.trigger('item',this.modelJSON);
+      console.log('trig');
+      events.trigger('track-item',this.modelJSON);
     },
     transformTime: function(ms){
       var sn;
@@ -51,5 +51,6 @@ define(function(){
       }
     }
   });
+
   return trackItemView;
 });

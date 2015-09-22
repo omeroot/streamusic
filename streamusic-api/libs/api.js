@@ -36,10 +36,11 @@ var getTracks = function (req, res) {
 
 var getMeTracks = function (req, res) {
   var userID = req.decoded._id;
-
+  console.log(userID);
   if (userID) {
     rest.track.getTracks(userID, function (err, result) {
       if (err) {
+        console.log(err);
         res.status(codes.notFound.code).json(codes.notFound);
       } else {
         res.status(codes.success.code).json(result.tracks);

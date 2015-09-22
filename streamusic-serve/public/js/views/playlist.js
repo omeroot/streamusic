@@ -1,18 +1,17 @@
 define(['collections/playlistCol', 'views/track'], function (playlistCollection, trackView) {
   var playListView = Backbone.View.extend({
-    initialize: function () {
-    },
     render: function () {
       playlistCollection.fetch({
-        success: _.bind(function (data) {
-          console.log(playlistCollection.models);
+        success: _.bind(function () {
           this.createPlayList(playlistCollection.models);
-        }, this)
+        }, this),
+        error: function(a,b,thrownError){
+          console.log(thrownError);
+        }
       });
 
     },
     createPlayList: function (models) {
-      console.log(models);
       _.each(models, function (model) {
         this.addTrack(model);
       }, this);
@@ -21,14 +20,7 @@ define(['collections/playlistCol', 'views/track'], function (playlistCollection,
       var v = new trackView({
         model: model
       }).render();
-      v.bind('item', this.playTrack, this);
       this.$el.append(v.el);
-    },
-    playTrack: function (item) {
-      console.log(item);
-      $('#track').append('<source src=' + 'http://cdn.demircanomer.com/erayicin' + ' type="audio/mpeg" />');
-      var track = document.getElementById('track');
-      track.play();
     }
   });
 

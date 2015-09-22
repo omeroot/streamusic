@@ -6,8 +6,12 @@ define(['text!templates/profile.html', 'views/player', 'views/playlist'], functi
     },
     render: function () {
       this.$el.html(profileTemplate);
-      var pv = new playerView({el: $('#player')}).render();
-      var pl = new playListView({el: $('.table')}).render();
+      //yer değiştirince authorization hatası veriyor!!!
+      var pv = new playerView({el: $('.player')});
+      var pl = new playListView({el: $('.table')});
+
+      pv.render();
+      pl.render();
     }
   });
 

@@ -1,4 +1,4 @@
-define(['text!templates/login.html'],function(loginTemplate){
+ define(['text!templates/login.html'],function(loginTemplate){
   var loginView = Backbone.View.extend({
     el: $('#content'),
     events: {

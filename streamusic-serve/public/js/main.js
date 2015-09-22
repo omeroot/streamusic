@@ -6,7 +6,7 @@ define(['Router','cache'], function (router, cache) {
   Backbone.history.start();
 
   var start = function () {
-    r.navigate('/login', {trigger: true})
+    //r.navigate('/login', {trigger: true})
   };
 
   return {

@@ -11,7 +11,8 @@ require.config({
     utils: 'modules/_utils',
     cache: 'cache',
     models: 'models/',
-    collections: 'collections/'
+    collections: 'collections/',
+    events: 'events'
   },
   shim: {
     'jQuery': {

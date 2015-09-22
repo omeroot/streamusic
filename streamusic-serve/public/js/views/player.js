@@ -1,8 +1,53 @@
-define(['text!templates/player.html','views/track'],function(playerTemplate,trackView){
+define(['text!templates/player.html','events'],function(playerTemplate,events){
   var playlistView = Backbone.View.extend({
+    events: {
+      'click #play' : 'playPause'
+    },
+    playStatus: false,
+    track:null,
+    default_music: {
+      name:"sample",
+      artist:"sample",
+      uri: "http://cdn.demircanomer.com/erayicin",
+      duration:168000
+    },
+    initialize: function(){
+      console.log('initialize');
+      events.on('track-item', function(item){
+        $('#track').append('<source src=' + item.uri + ' type="audio/mpeg" />');
+        console.log('trig event');
+        $('#time').text(item.human_duration);
+      }, this);
+      this.progress = $('.progress-bar');
+    },
     render: function(){
       this.$el.html(playerTemplate);
+      this.track = document.getElementById('track');
+      //this.prepareTrack(this.default_music);
+      //events.trigger('track-item',this.default_music);
       return this;
+    },
+    playPause: function(){
+      if(this.playStatus){
+        this.playStatus = false;
+        this.pause();
+      }else{
+        this.playStatus = true;
+        this.play();
+      }
+    },
+    prepareTrack: function (item) {
+      $('#track').append('<source src=' + item.uri + ' type="audio/mpeg" />');
+      console.log('trig event');
+      $('#time').text(item.human_duration);
+      this.playPause();
+    },
+    play: function(){
+      console.log('play');
+      this.track.play();
+    },
+    pause: function(){
+      this.track.pause();
     }
   });
 
