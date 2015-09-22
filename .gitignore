@@ -1,3 +1,6 @@
 node_modules
 streamusic-api/configure
 streamusic-serve/configure
+.DS_STORE
+streamusic-api/.DS_STORE
+streamusic-serve/.DS_STORE
