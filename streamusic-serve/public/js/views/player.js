@@ -5,6 +5,7 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
     },
     playStatus: false,
     track:null,
+    currentName:null,
     initialize: function(){
       events.on('track-item', this.prepareTrack, this);
       this.progress = $('.progress-bar');
@@ -25,10 +26,15 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
       }
     },
     prepareTrack: function (item) {
-      $('#track').append('<source src=http://' + item.uri + ' type="audio/mpeg" />');
-      $('#time').text(item.human_duration);
+      console.log(item);
+      if(this.currentName == null || this.currentName != item.name){
+        console.log('new song');
+        $('#track').append('<source src=http://' + item.uri + ' type="audio/mpeg" />');
+        $('#time').text(item.human_duration);
+        this.currentID = item._id;
+        this.track.play();
+      }
       //var track = document.getElementById('track');
-      this.track.play();
     },
     play: function(){
       console.log('play');
