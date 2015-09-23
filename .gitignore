@@ -3,3 +3,5 @@ streamusic-api/configure
 streamusic-serve/configure
 .DS_Store
 */.DS_Store
+*/.idea/
+.idea/
