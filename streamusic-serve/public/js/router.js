@@ -2,6 +2,7 @@ define(['views/login','views/profile','views/header','views/register'],
   function(loginView,profileView,headerView,registerView){
   var router = Backbone.Router.extend({
     routes: {
+      'login': 'login',
       'profile': 'profile',
       'register': 'register'
     },

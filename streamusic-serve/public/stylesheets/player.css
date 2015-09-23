@@ -138,6 +138,15 @@ p {
     color: #777;
 }
 
+.input-sm {
+    height: 25px;
+    width: 70%;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
 .player .song-artist {
     margin: 3px 0 0 0;
     padding: 0;
