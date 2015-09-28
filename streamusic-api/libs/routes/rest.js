@@ -1,4 +1,5 @@
 module.exports = {
-  playlist: require('./callbacks/PlayList.js'),
-  track: require('./callbacks/Track.js')
+  track: require('./callbacks/Track.js'),
+  user: require('./callbacks/User.js'),
+  authenticate: require('./callbacks/Authenticate.js')
 };

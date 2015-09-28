@@ -4,14 +4,12 @@ var api = require('./libs/api.js');
 
 exp.authRouter.get('/authenticate',api.authenticate);
 
-exp.apiRouter.get('/user/:user_id/playlist');
 exp.apiRouter.get('/user/me/tracks',api.getMeTracks);
-exp.apiRouter.get('/user/:user_id/tracks',api.getTracks);
+exp.apiRouter.get('/user/me/profile',api.getMeProfile);
 
-exp.apiRouter.get('/user/:user_id/playlist/:playlist_id/tracks');
-exp.apiRouter.get('/user/me/playlist');
+exp.apiRouter.get('/user/:user_id/tracks',api.getUserTracks);
 
-exp.apiRouter.get('/track/:track_id',api.getSelfTrack);
+//exp.apiRouter.get('/track/:track_id',api.get);
 
 
 exp.apiRouter.post('/test',function(req, res){

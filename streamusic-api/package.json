@@ -23,6 +23,7 @@
     "jade" : "*",
     "lowdb" : "*",
     "mongoose" : "*",
-    "nodemailer" : "*"
+    "nodemailer" : "*",
+    "underscore" : "*"
   }
 }
