@@ -7,7 +7,7 @@ var getUserTracks = function(userID, callback){
 };
 
 var getUserProfile = function(userID, callback){
-  User.findOne({_id: userID},{_id: 0})
+  User.findOne({username: userID},{_id: 0})
       .exec(callback);
 };
 

@@ -22,6 +22,16 @@ var getMeTracks = function (req, res) {
   }
 };
 
+var getUserProfile = function(req, res){
+  var userID = req.body.user_id || req.params.user_id || req.query.user_id;
+
+  if(userID){
+    rest.user.getUserProfile(userID, controlDBCallback(res));
+  }else{
+    res.status(codes.badRequest.code).json(codes.badRequest);
+  }
+}
+
 var getMeProfile = function (req, res) {
   var userID = req.decoded._id;
 
@@ -32,6 +42,16 @@ var getMeProfile = function (req, res) {
   }
 };
 
+var getTrack = function (req, res){
+  var trackID = req.body.track_id || req.query.track_id || req.params.track_id;
+
+  if(trackID){
+    rest.track.getTrack(trackID, controlDBCallback(res));
+  }else{
+    res.status(codes.badRequest.code).json(codes.badRequest);
+  }
+}
+
 var authenticate = function (req, res) {
   return rest.authenticate(req, res);
 };
@@ -41,5 +61,7 @@ module.exports = {
   authenticate: authenticate,
   getUserTracks: getUserTracks,
   getMeTracks: getMeTracks,
-  getMeProfile: getMeProfile
+  getUserProfile: getUserProfile,
+  getMeProfile: getMeProfile,
+  getTrack: getTrack
 };
