@@ -14,3 +14,6 @@ Method    | Endpoint                        | Usage                 | Returns
   Get     |  /api/v1/user/{user_id}/profile |  get user profile     |  profile          
   Get     |  /api/v1/track/{track_id}       |  get track info       |  track     
   Get     |  /auth/authenticate             |  check authentication |  status     
+
+
+- [ ] will control token expiration
