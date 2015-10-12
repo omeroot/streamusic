@@ -31,9 +31,11 @@ Method    | Endpoint                        | Usage                 | Returns
 #console
 #####API
 $cd streamusic/streamusic-api/
+
 $node app.js
 #####SERVE
 $cd streamusic/streamusic-serve/
+
 $node app.js
 ####MONGODB
 collections ==> tracks, users
