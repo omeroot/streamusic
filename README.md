@@ -5,9 +5,13 @@ stream music application
 
 #dependencies
 ==> NodeJS
+
 ==> Express 
+
 ==> Backbone
+
 ==> RequireJS
+
 ==> MongoDB
 
 #streamusic-api
