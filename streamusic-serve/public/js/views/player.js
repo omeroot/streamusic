@@ -3,7 +3,7 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
     events: {
       'click #play' : 'playPause'
     },
-    playStatus: false,
+    playStatus: true,
     track:null,
     currentName:null,
     initialize: function(){
@@ -29,7 +29,7 @@ define(['text!templates/player.html','events'],function(playerTemplate,events){
       console.log(item);
       if(this.currentName == null || this.currentName != item.name){
         console.log('new song');
-        $('#track').append('<source src=http://' + item.uri + ' type="audio/mpeg" />');
+        $('#track').append('<source src=http://' + item.tracks[0].uri + ' type="audio/mpeg" />');
         $('#time').text(item.human_duration);
         this.currentID = item._id;
         this.track.play();

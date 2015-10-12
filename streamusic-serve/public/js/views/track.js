@@ -7,7 +7,8 @@ define(['events'],function(events){
     modelJSON: null,
     initialize: function(){
       this.modelJSON = this.model.toJSON();
-      var t = this.transformTime(this.modelJSON.duration_ms);
+      console.log("MODELJSON",this.modelJSON);
+      var t = this.transformTime(this.modelJSON.tracks[0].duration_ms);
       this.modelJSON.human_duration = t;
 
       this.template = '<td>' + this.modelJSON.name + '</td>' +
