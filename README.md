@@ -31,3 +31,5 @@ $node app.js
 #####SERVE
 $cd streamusic/streamusic-serve/
 $node app.js
+####MONGODB
+collections ==> tracks, users
