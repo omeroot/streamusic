@@ -1,6 +1,8 @@
 var exp = require('./libs/init.js');
 var api = require('./libs/api.js');
-//var test = require('./tests/proto.js');
+var fs = require('fs');
+
+console.log(fs.readFileSync('label').toString());
 
 exp.authRouter.get('/authenticate', api.authenticate);
 
