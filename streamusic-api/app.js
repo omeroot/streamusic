@@ -2,7 +2,7 @@ var exp = require('./libs/init.js');
 var api = require('./libs/api.js');
 var fs = require('fs');
 
-console.log(fs.readFileSync('label').toString());
+console.log(fs.readFileSync('./label').toString());
 
 exp.authRouter.get('/authenticate', api.authenticate);
 
