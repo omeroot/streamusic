@@ -1,6 +1,8 @@
 node_modules
 streamusic-api/configure
 streamusic-serve/configure
+streamusic-serve/build/bower_components
+streamusic-serve/build/node_modules
 .DS_Store
 */.DS_Store
 */.idea/
