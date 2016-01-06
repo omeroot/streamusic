@@ -1,0 +1,11 @@
+{
+  "name": "streamapi",
+  "dependencies": {
+    "backbone": "",
+    "jquery": "2.1.4",
+    "text": "*",
+    "underscore": "*",
+    "requirejs": "2.1.14",
+    "almond": "~0.2.9"
+  }
+}
