@@ -1,8 +1,18 @@
 # streamusic
-
 stream music application
 
 ![alt tag] (https://cloud.githubusercontent.com/assets/13312530/9938380/a9848ad6-5d6d-11e5-8e14-d44548b22254.png)
+
+#dependencies
+==> NodeJS
+
+==> Express 
+
+==> Backbone
+
+==> RequireJS
+
+==> MongoDB
 
 #streamusic-api
 
@@ -17,3 +27,15 @@ Method    | Endpoint                        | Usage                 | Returns
 
 
 - [ ] will control token expiration
+
+#console
+#####API
+$cd streamusic/streamusic-api/
+
+$node app.js
+#####SERVE
+$cd streamusic/streamusic-serve/
+
+$node app.js
+#####MONGODB
+collections ==> tracks, users
