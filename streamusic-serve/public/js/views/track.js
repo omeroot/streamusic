@@ -11,8 +11,8 @@ define(['events'],function(events){
       var t = this.transformTime(this.modelJSON.tracks[0].duration_ms);
       this.modelJSON.human_duration = t;
 
-      this.template = '<td>' + this.modelJSON.name + '</td>' +
-                      '<td>' + this.modelJSON.artist + '</td>' +
+      this.template = '<td>' + this.modelJSON.tracks[0].name + '</td>' +
+                      '<td>' + this.modelJSON.tracks[0].artist + '</td>' +
                       '<td>' + this.modelJSON.human_duration + '</td>' +
                       '<td>' +
                         '<div class="col-xs-3"></div><input class="form-control input-sm" id="send" type="text"></div>' +

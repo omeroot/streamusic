@@ -6,7 +6,12 @@ define(['Router','cache'], function (router, cache) {
   Backbone.history.start();
 
   var start = function () {
-    r.navigate('/login', {trigger: true})
+  	var current = Backbone.history.getFragment();
+  	if(current == login){
+  		r.navigate('/login', {trigger: true});
+  	} else {
+  		r.navigate('/' + current, {trigger: true});
+  	}
   };
 
   return {
