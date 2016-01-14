@@ -9,7 +9,7 @@
     module.exports = factory(require("backbone"));
   } else if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
-    define(["backbone"], function(Backbone) {
+    define(["backbone.localStorage"], function(Backbone) {
       // Use global variables if the locals are undefined.
       return factory(Backbone || root.Backbone);
     });
