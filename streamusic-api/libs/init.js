@@ -13,6 +13,11 @@ var server = http.createServer(app);
 var apiRouter = express.Router();
 var authRouter = express.Router();
 
+//var privatekey = fs.readfilesync('privatekey.pem').tostring();
+//var certificate = fs.readfilesync('certificate.pem').tostring();
+
+//var credentials = crypto.createCredentials({key: privateKey, cert: certificate});
+
 mongoose.connect(conf.database.host,conf.database.opts);
 
 app.use(cookieParser());
@@ -33,6 +38,7 @@ apiRouter.use(tverify);
 app.use('/api/v1', apiRouter);
 app.use('/auth', authRouter);
 
+//server.setSecure(credentials);
 server.listen(port);
 
 module.exports = {
